@@ -5,6 +5,8 @@ RUN apk add --update --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/tes
   py-pygments asciidoctor npm py3-rst ca-certificates libc6-compat libstdc++ \
   && rm -rf /var/cache/apk/* 
 
+RUN export NODE_PATH=$NODE_PATH:`npm root -g`
+
 RUN npm config set unsafe-perm true \
   && npm install -g postcss-cli autoprefixer \
   && npm install -g @babel/cli @babel/core @babel/preset-env \
