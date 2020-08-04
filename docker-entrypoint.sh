@@ -27,5 +27,7 @@ pandoc -v
 echo -ne "${BOLD}Babel: ${PLAIN}"
 babel --version
 
+export NODE_PATH=$NODE_PATH:`npm root -g`
+
 echo -e "\n${BOLD}Generating Site ${NAME} at commit ${GITHUB_SHA}.${PLAIN}"
 hugo ${INPUT_ARGS} -d "${INPUT_BUILDPATH}"
